@@ -12,8 +12,11 @@ typedef struct {
 }Student;
 
 
-void format_print(struct Student){
-    
+void format_print(vector<Student> &L){
+    for(int i=0; i<L.size();i++){
+        cout<<L[i].name<<": "<<L[i].mark<<endl;
+    }
+    cout<<"---END---"<<endl;
 }
 
 int main() {
@@ -22,39 +25,45 @@ int main() {
     
     //3. Insert 5 students into L in ordered of its occurrence
     //for (int i = 0; i < 5; i++) {
+    //nguoi1
     Student people;
     people.name = "Harry Potter";
     people.mark = 10;
     L.push_back(people);     //append {"Harry Potter", 10} to L
-
-    Student people;
+    //nguoi2
     people.name = "Hermione Granger";
     people.mark = 8;
     L.push_back(people);
-
-    Student people;
+    //nguoi3
     people.name = "Draco Malfoy";
     people.mark = 7;
     L.push_back(people);
-
-    Student people;
+    //nguoi4
     people.name = "Luna Lovegood";
     people.mark = 8;
     L.push_back(people);
-
-    Student people;
+    //nguoi5
     people.name = "Ron Weasley";
     people.mark = 9;
     L.push_back(people);
 
-
-
-    //4.
-    
+    //4.print the list
+    format_print(L);
     
     //5.
-    
-    //...
+    //nguoi1
+    people.name = "Gini Weasley";
+    people.mark = 6;
+
+     L.insert(L.begin() + 1, people);    
+    //6. print the lít
+    format_print(L);
+
+    //7. erase 
+    L.erase(L.begin() + 2);
+    //8. print the lít
+    format_print(L);
+
 
 
     //9. Read a string s from stdin, print the mark of the student whose name is s to stdout. 
@@ -66,24 +75,3 @@ int main() {
 
     return 0;
 }
-
-/*
-Write a C++ program to to following tasks:
-
-Define a structure Student to store basic informations of a student:
-name: string
-mark: integer
-Create a list L to store students using vector<Student> class
-Insert 5 students into L in ordered of its occurrence
-Print student List in format
-Name 1: mark 1
-Name 2: mark 2
-...
----END---
-Insert a new student (Ginny Weasley, 6) at the 2nd position (1-based)
-Print the student list
-Delete the 3rd element
-Print the student list
-Read a string s from stdin, print the mark of the student whose name is s to stdout. 
-
-*/
